@@ -9,8 +9,8 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'masked-icon.svg'],
       manifest: {
-        name: 'Color Picker',
-        short_name: 'Colors',
+        name: 'ColorMine',
+        short_name: 'ColorMine',
         description: 'Professional Color Picker PWA',
         theme_color: '#ffffff',
         icons: [

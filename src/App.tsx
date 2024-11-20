@@ -80,9 +80,9 @@ function App() {
     let radius;
     
     if (v === 1) {
-      radius = s; // White center mode
+      radius = s;
     } else {
-      radius = v; // Black center mode
+      radius = v;
     }
     
     return {
@@ -94,7 +94,6 @@ function App() {
   const handleRgbChange = useCallback((r: number, g: number, b: number) => {
     const { h, s, v } = rgbToHsv(r, g, b);
     
-    // Determine center mode based on color values
     const shouldBeWhiteCenter = v === 1;
     if (whiteCenter !== shouldBeWhiteCenter) {
       setWhiteCenter(shouldBeWhiteCenter);
@@ -118,22 +117,25 @@ function App() {
   return (
     <div className="min-h-screen bg-gray-100 p-4 md:p-8">
       <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl p-6 space-y-6">
-        <div className="flex items-center justify-between mb-6">
-          <button
-            onClick={toggleCenterMode}
-            className="flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors"
-          >
-            {whiteCenter ? <Sun size={18} /> : <Moon size={18} />}
-            Center Blend: {whiteCenter ? 'White' : 'Black'}
-          </button>
-          
-          <button
-            onClick={reset}
-            className="flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors"
-          >
-            <RotateCcw size={18} />
-            Reset
-          </button>
+        <div className="flex flex-col space-y-4 sm:space-y-0 sm:flex-row sm:items-center sm:justify-between mb-6">
+          <h1 className="text-2xl font-bold text-gray-800">ColorMine</h1>
+          <div className="flex items-center gap-3">
+            <button
+              onClick={toggleCenterMode}
+              className="flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors"
+            >
+              {whiteCenter ? <Sun size={18} /> : <Moon size={18} />}
+              Center Blend: {whiteCenter ? 'White' : 'Black'}
+            </button>
+            
+            <button
+              onClick={reset}
+              className="flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors"
+            >
+              <RotateCcw size={18} />
+              Reset
+            </button>
+          </div>
         </div>
 
         <div className="flex flex-col md:flex-row gap-8 items-center justify-center">
